@@ -1,0 +1,83 @@
+.med-container {
+  padding: 110px;
+  text-align: center;
+  background: linear-gradient(135deg, #d7d8da, #e6ecff);
+  min-height: 0vh;
+}
+
+/* HEADER */
+.med-container h1 {
+  margin-bottom: 20px;
+}
+
+/* ADD BOX */
+.add-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.add-box input,
+.add-box select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  width: 180px;
+}
+
+.add-box button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-box button:hover {
+  transform: scale(1.05);
+}
+
+/* GRID */
+.med-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.med-card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.med-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.med-card button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #e53935;
+  color: white;
+  cursor: pointer;
+}
+
+/* TAKEN */
+.med-card.taken {
+  opacity: 0.6;
+}
+
+.med-card.taken button {
+  background: green;
+}

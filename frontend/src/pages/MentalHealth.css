@@ -1,0 +1,97 @@
+.mental-container {
+  padding: 30px;
+  text-align: center;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* MOOD */
+.mood-row {
+  margin: 20px;
+}
+
+.mood-row button {
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mood-row .active {
+  background: #7c3aed;
+  color: white;
+}
+
+/* STRESS CARD */
+.stress-card {
+  background: rgba(255,255,255,0.6);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: 250px;
+}
+
+/* GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.med-card {
+  background: rgba(255,255,255,0.7);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.med-card:hover {
+  transform: translateY(-5px);
+}
+
+.med-card button {
+  margin-top: 10px;
+  background: #7c3aed;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 8px 15px;
+}
+
+/* AFFIRMATION */
+.affirmation {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 15px;
+}
+
+/* STATS */
+.stats {
+  margin-top: 20px;
+}
+
+.bars {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.bar {
+  width: 50px;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  color: white;
+}
+
+.happy { background: green; }
+.sad { background: orange; }
+.angry { background: red; }

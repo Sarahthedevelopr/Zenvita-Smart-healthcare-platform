@@ -1,0 +1,62 @@
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+}
+
+.amount {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.method {
+  padding: 10px 15px;
+  background: #eee;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.method.active {
+  background: #2563eb;
+  color: white;
+}
+
+.pay-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: gray;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+}

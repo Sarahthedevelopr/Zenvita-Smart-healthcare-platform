@@ -1,0 +1,61 @@
+.bmi-container {
+  text-align: center;
+  padding: 110px;
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+  min-height: 0vh;
+  
+}
+
+/* INPUT BOX */
+.bmi-box {
+  display: flex;
+  margin-top: 40px;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.bmi-box input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 150px;
+}
+
+.bmi-box button {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* RESULT CARD */
+.result-box {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* COLORS */
+.result-box.underweight {
+  background: orange;
+}
+
+.result-box.normal {
+  background: green;
+}
+
+.result-box.overweight {
+  background: red;
+}
+
+.result-box ul {
+  text-align: left;
+}

@@ -1,0 +1,301 @@
+/* 🔷 BACKGROUND */
+.checkup-container {
+  min-height: 60vh;   /* 🔥 FIX footer issue */
+  background: linear-gradient(135deg, #c2d2f4a4, #e2ebff);
+  padding: 40px;
+  text-align: center;
+  color: black;
+}
+
+/* 🔥 TOP SECTION (DETAIL VIEW) */
+.checkup-header {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 500px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fade 0.6s ease;
+}
+
+.checkup-header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.checkup-header h2 {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* 🔷 GRID */
+.checkup-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* 🔥 CARD */
+.checkup-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 20px;
+  color: black;
+  position: relative;
+  cursor: pointer;
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+/* 🔥 HOVER */
+.checkup-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ✨ GLOW */
+.checkup-card::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  opacity: 0;
+}
+
+.checkup-card:hover::after {
+  opacity: 1;
+  animation: shine 1s;
+}
+
+@keyframes shine {
+  from { transform: translateX(-100%) rotate(25deg); }
+  to { transform: translateX(100%) rotate(25deg); }
+}
+
+/* 🔷 IMAGE */
+.card-img {
+  width: 110px;
+  margin: 20px auto;
+  transition: 0.3s;
+}
+
+.checkup-card:hover .card-img {
+  transform: scale(1.1);
+}
+
+/* 🔷 DOTS */
+.dots {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 🔷 LINE */
+.line {
+  height: 2px;
+  background: #ccc;
+  width: 80%;
+  margin: 10px auto;
+}
+
+/* 🔷 TEXT */
+.checkup-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.checkup-card p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* 🔷 ARROW */
+.arrow {
+  width: 45px;
+  height: 45px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.3s;
+}
+
+.checkup-card:hover .arrow {
+  transform: scale(1.1);
+}
+
+/* 🔷 YELLOW RING */
+.arrow::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 3px solid gold;
+  border-radius: 50%;
+  animation: pulseRing 1.5s infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* 🔷 BUTTON */
+.btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* 🔷 BACK */
+.back-btn {
+  margin-top: 30px;
+  padding: 8px 15px;
+  background: gray;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+/* 🔷 POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  color: black;
+  animation: pop 0.3s;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
+/* 🔷 SUCCESS */
+.success {
+  margin-top: 50px;
+  color: white;
+}
+
+/* 🔷 ANIMATION */
+.fade {
+  animation: fade 0.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; }
+}
+
+
+/* 🔥 DETAIL CARD */
+.checkup-detail-card {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  animation: fade 0.5s ease;
+}
+
+/* 👨‍⚕️ IMAGE */
+.checkup-img img {
+  width: 200px;
+  border-radius: 20px;
+}
+
+/* 📋 CONTENT */
+.checkup-content {
+  text-align: left;
+}
+
+.checkup-content h1 {
+  font-size: 28px;
+}
+
+.checkup-content h2 {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.checkup-content h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* BUTTONS */
+.checkup-btns {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.continue {
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.back {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .checkup-detail-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .checkup-content {
+    text-align: center;
+  }
+}
