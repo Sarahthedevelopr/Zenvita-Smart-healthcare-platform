@@ -90,7 +90,20 @@ export default function DoctorHome() {
   }, [tracking]);
 
   // 👨‍⚕️ Doctors
-  const doctorImages = [doc1, doc2, doc3, doc4,doc5,doc6,doc7,doc8,doc9,doc10,doc11];
+  const doctorImages = [
+  doc1,
+  doc2,
+  doc3,
+  doc4,
+  doc5,
+  doc6,
+  doc7,
+  doc8,
+  doc9,
+  doc10,
+  doc11,
+  doc12
+];
 
 const doctors = Array.from({ length: 12 }, (_, i) => ({
   name: `Dr. ${["Sharma","Khan","Mehta","Verma","Singh","Rao","Gupta","Das","Ali","Roy","Patel","Sen"][i]}`,

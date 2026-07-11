@@ -4,18 +4,21 @@ import { db } from "../firebase";
 import { useParams } from "react-router-dom";
 
 export default function TrackingViewer() {
-
   const { id } = useParams();
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const r = ref(db, "emergency/" + id);
-    onValue(r, snap => setData(snap.val()));
-  }, []);
+    const trackingRef = ref(db, "emergency/" + id);
+
+    const unsubscribe = onValue(trackingRef, (snapshot) => {
+      setData(snapshot.val());
+    });
+
+    return () => unsubscribe();
+  }, [id]);
 
   return (
     <div className="tracking">
-
       <h2>🚑 Live Tracking</h2>
 
       {data && (
@@ -37,7 +40,6 @@ export default function TrackingViewer() {
           />
         </>
       )}
-
     </div>
   );
 }

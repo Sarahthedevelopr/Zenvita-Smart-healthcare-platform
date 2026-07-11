@@ -13,6 +13,7 @@ const AI = () => {
 
   const speak = (text) => {
     if (isMuted) return;
+
     const speech = new SpeechSynthesisUtterance(text);
     speech.lang = "en-IN";
 
@@ -25,73 +26,60 @@ const AI = () => {
   const getReply = (msg) => {
     const text = msg.toLowerCase();
 
+    // 🚑 Emergency
+    if (text.includes("ambulance") || text.includes("emergency")) {
+      return "🚑 Call 108 immediately for ambulance service.";
+    }
+
+    // 🏥 Hospitals
+    if (text.includes("hospital")) {
+      setMapQuery("hospital near me");
+      return "🏥 Showing nearby hospitals.";
+    }
+
     if (text.includes("cancer")) {
       setMapQuery("cancer hospital in Ranchi");
       return "Here are cancer hospitals near you.";
     }
 
-    if (text.includes("dental")) {
-      setMapQuery("dental clinic near me");
-      return "Here are dental clinics near you.";
-    }
-
+    // 👨‍⚕️ Doctors
     if (text.includes("doctor")) {
       setMapQuery("doctor near me");
-      return "These are doctors available near you.";
+      return "👨‍⚕️ These are doctors available near you.";
     }
 
-    if (text.includes("ambulance")) {
-      return "Emergency ambulance number is 108.";
+    // 🦷 Dental
+    if (text.includes("dental")) {
+      setMapQuery("dental clinic near me");
+      return "🦷 Here are dental clinics near you.";
     }
 
-    return "I can help you find hospitals, doctors or emergency services.";
+    // 🤒 Fever
+    if (text.includes("fever")) {
+      return "🤒 Take rest, drink plenty of fluids and consult a doctor if fever persists.";
+    }
 
-    // 🚑 EMERGENCY
-  if (text.includes("ambulance") || text.includes("emergency")) {
-    return "🚑 Call 108 immediately for ambulance service.";
-  }
+    // 🤕 Headache
+    if (text.includes("headache")) {
+      return "🧠 Stay hydrated, take proper rest and consult a doctor if the headache is severe.";
+    }
 
-  // 🤕 COMMON HEALTH
-  if (text.includes("fever")) {
-    return "🤒 Take rest, drink fluids and consult a doctor if fever persists.";
-  }
+    // 🩸 Nose Bleeding
+    if (text.includes("nose bleed") || text.includes("nose se blood")) {
+      return "🩸 Sit straight, lean forward and pinch your nose gently for 10 minutes.";
+    }
 
-  if (text.includes("headache")) {
-    return "🧠 Stay hydrated, rest and avoid stress. Consult doctor if severe.";
-  }
+    // 💊 Medicine
+    if (text.includes("medicine") || text.includes("tablet")) {
+      return "💊 Please consult a doctor before taking any medication.";
+    }
 
-  if (text.includes("nose bleed") || text.includes("nose se blood")) {
-    return "🩸 Sit straight, lean forward and pinch nose for 10 minutes.";
-  }
-
-  // 🏥 SERVICES
-  if (text.includes("hospital")) {
-    setMapQuery("hospital near me");
-    return "🏥 Showing nearby hospitals.";
-  }
-
-  if (text.includes("doctor")) {
-    setMapQuery("doctor near me");
-    return "👨‍⚕️ These are doctors available near you.";
-  }
-
-  if (text.includes("dental")) {
-    setMapQuery("dental clinic near me");
-    return "🦷 Here are dental clinics near you.";
-  }
-
-  // 💊 MEDICINE
-  if (text.includes("medicine") || text.includes("tablet")) {
-    return "💊 Please consult a doctor before taking any medication.";
-  }
-
-  // ❤️ FALLBACK
-  return "🤖 I can help with health tips, doctors, hospitals & emergencies.";
-
+    // ❤️ Default Reply
+    return "🤖 I can help with health tips, doctors, hospitals & emergency services.";
   };
 
   const sendMessage = () => {
-    if (!input) return;
+    if (!input.trim()) return;
 
     setMessages((prev) => [...prev, { sender: "user", text: input }]);
     setTyping(true);
@@ -109,6 +97,7 @@ const AI = () => {
 
   const startVoice = () => {
     const recognition = new window.webkitSpeechRecognition();
+
     recognition.lang = "en-IN";
 
     recognition.onresult = (event) => {
@@ -121,17 +110,17 @@ const AI = () => {
 
   return (
     <div className="ai-main-container">
-
-      {/* 🤖 AVATAR */}
+      {/* 🤖 Avatar */}
       <div className={`ai-avatar ${isSpeaking ? "talking" : ""}`}>
         🤖
       </div>
 
-      {/* 💬 CHAT */}
+      {/* 💬 Chat */}
       <div className="ai-chat-wrapper">
 
         <div className="ai-header">
           AI Health Assistant
+
           <button onClick={() => setIsMuted(!isMuted)}>
             {isMuted ? "🔊" : "🔇"}
           </button>
@@ -153,7 +142,9 @@ const AI = () => {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask anything..."
           />
+
           <button onClick={sendMessage}>➤</button>
+
           <button onClick={startVoice}>🎤</button>
         </div>
 
@@ -161,7 +152,7 @@ const AI = () => {
           <iframe
             title="map"
             src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-          ></iframe>
+          />
         )}
 
       </div>
